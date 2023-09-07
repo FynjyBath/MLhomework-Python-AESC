@@ -24,4 +24,10 @@ def run_length_encoding(x):
 
 
 def pairwise_distance(x, y):
+    return np.vectorize(np.sqrt)(np.dot(np.vectorize(np.square)(np.repeat(x, len(y), axis=0).reshape((len(x), len(y), 2)) -
+                                                                np.tile(y.reshape((len(y) * 2,)), len(x)).reshape((len(x), len(y), 2))), np.array([1, 1])))
+
+
+def pairwise_distance_scipy(x, y):
     return cdist(x, y, metric='euclidean')
+
