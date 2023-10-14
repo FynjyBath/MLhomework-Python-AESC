@@ -59,7 +59,7 @@ def find_best_split(feature_vector, target_vector):
         l = sort[0].shape[0]
         left = -fg / l
         right = -(l - fg) / l
-        ginis[i] = left * H(sort[1][:fg]) + right * H(sort[1][fg:])
+        ginis[i] = 1 + left * H(sort[1][:fg]) + right * H(sort[1][fg:])
     mi = np.argmax(ginis)
     return thresholds, ginis, thresholds[mi], ginis[mi]
 
