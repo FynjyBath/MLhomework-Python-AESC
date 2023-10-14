@@ -66,9 +66,6 @@ def find_best_split(feature_vector, target_vector):
 
 class DecisionTree():
     def __init__(self, feature_types, max_depth=None, min_samples_split=None, min_samples_leaf=None):
-        if np.any(list(map(lambda x: x != "real" and x != "categorical", feature_types))):
-            raise ValueError("There is unknown feature type")
-
         self._tree = {}
         self._feature_types = feature_types
         self._max_depth = max_depth
